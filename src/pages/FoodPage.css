@@ -1,0 +1,784 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.food-page{
+  width: 100%;
+  background: #f8f5ef;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.food-hero{
+
+  height: 70vh;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+
+  padding: 20px;
+}
+
+.food-hero h1{
+
+  font-size: 75px;
+
+  font-family: "Playfair Display", serif;
+
+  margin-bottom: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #fff,
+    #d4af37
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.food-hero p{
+
+  font-size: 20px;
+
+  max-width: 700px;
+
+  line-height: 35px;
+}
+
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.search-section{
+
+  padding: 50px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.search-box{
+
+  width: 500px;
+
+  height: 60px;
+
+  background: white;
+
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 25px;
+
+  gap: 15px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.search-box input{
+
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  font-size: 16px;
+
+  background: transparent;
+}
+
+/* =========================================================
+   FOOD GRID
+========================================================= */
+
+.food-grid{
+
+  padding: 0 70px 100px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 35px;
+}
+
+/* =========================================================
+   FOOD CARD
+========================================================= */
+
+.food-card{
+
+  background: white;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  transition: 0.5s;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.food-card:hover{
+
+  transform: translateY(-12px);
+
+  box-shadow: 0 20px 45px rgba(212,175,55,0.3);
+}
+
+/* IMAGE */
+
+.food-image{
+
+  width: 100%;
+
+  height: 260px;
+
+  object-fit: cover;
+}
+
+/* CONTENT */
+
+.food-content{
+
+  padding: 25px;
+}
+
+.food-content h2{
+
+  font-size: 30px;
+
+  margin-bottom: 15px;
+
+  font-family: "Playfair Display", serif;
+}
+
+.food-content p{
+
+  color: #666;
+
+  line-height: 28px;
+
+  margin-bottom: 20px;
+}
+
+/* FOOD INFO */
+
+.food-info{
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  color: #555;
+
+  font-size: 14px;
+}
+
+.food-info span{
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+/* PRICE */
+
+.food-content h3{
+
+  color: #d4af37;
+
+  font-size: 28px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.food-buttons{
+
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 20px;
+}
+
+.food-buttons button{
+
+  flex: 1;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  transition: 0.4s;
+
+  color: white;
+}
+
+.food-buttons button:hover{
+
+  transform: scale(1.03);
+}
+
+/* ADD TO CART */
+
+.cart-btn{
+
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  color: #111 !important;
+}
+
+/* VIEW DETAILS */
+
+.view-btn{
+
+  background: #111;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.food-modal{
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.75);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.food-modal-content{
+
+  width: 850px;
+
+  max-width: 95%;
+
+  height: 500px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  position: relative;
+
+  animation: popup 0.4s ease;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes popup{
+
+  from{
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-btn{
+
+  position: absolute;
+
+  top: 18px;
+
+  right: 18px;
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: rgba(0,0,0,0.6);
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.3s;
+
+  z-index: 10;
+}
+
+.close-btn:hover{
+
+  background: crimson;
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   MODAL IMAGE
+========================================================= */
+
+.modal-image{
+
+  width: 50%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   MODAL DETAILS
+========================================================= */
+
+.modal-details{
+
+  width: 50%;
+
+  padding: 35px;
+
+  overflow-y: auto;
+}
+
+.modal-details h1{
+
+  font-size: 38px;
+
+  margin-bottom: 20px;
+
+  font-family: "Playfair Display", serif;
+}
+
+.modal-details p{
+
+  color: #555;
+
+  line-height: 30px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+.modal-review{
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #d4af37;
+
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.modal-details button{
+
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  border: none;
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  transition: 0.3s;
+}
+
+.modal-details button:hover{
+
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   DINING SECTION
+========================================================= */
+
+.dining-section{
+
+  padding: 100px 70px;
+
+  background: #111;
+
+  color: white;
+
+  text-align: center;
+}
+
+.dining-section h1{
+
+  font-size: 60px;
+
+  margin-bottom: 50px;
+
+  font-family: "Playfair Display", serif;
+}
+
+.dining-grid{
+
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 30px;
+}
+
+.dining-card{
+
+  background: rgba(255,255,255,0.08);
+
+  padding: 50px;
+
+  border-radius: 25px;
+
+  transition: 0.4s;
+}
+
+.dining-card:hover{
+
+  transform: translateY(-10px);
+
+  background: rgba(255,255,255,0.12);
+}
+
+.dining-icon{
+
+  font-size: 50px;
+
+  color: #d4af37;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   CART SECTION
+========================================================= */
+
+.cart-section{
+
+  padding: 100px 70px;
+}
+
+.cart-section h1{
+
+  font-size: 55px;
+
+  margin-bottom: 40px;
+
+  font-family: "Playfair Display", serif;
+}
+
+/* CART ITEM */
+
+.cart-item{
+
+  background: white;
+
+  padding: 25px;
+
+  margin-bottom: 25px;
+
+  border-radius: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* CART IMAGE */
+
+.cart-image{
+
+  width: 130px;
+
+  height: 130px;
+
+  border-radius: 15px;
+
+  object-fit: cover;
+}
+
+/* CART DETAILS */
+
+.cart-details{
+
+  flex: 1;
+}
+
+.cart-details h3{
+
+  font-size: 26px;
+
+  margin-bottom: 10px;
+}
+
+.cart-desc{
+
+  color: #666;
+
+  line-height: 28px;
+
+  margin-bottom: 12px;
+}
+
+/* ACTIONS */
+
+.cart-actions{
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.cart-actions button{
+
+  border: none;
+
+  background: #d4af37;
+
+  color: black;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.cart-actions button:hover{
+
+  transform: scale(1.05);
+}
+
+/* DELETE */
+
+.delete-btn{
+
+  background: crimson !important;
+
+  color: white !important;
+}
+
+/* TOTAL */
+
+.total-price{
+
+  margin-top: 40px;
+
+  text-align: right;
+
+  font-size: 35px;
+
+  color: #111;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:992px){
+
+  .food-grid{
+
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .dining-grid{
+
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+  .food-grid{
+
+    grid-template-columns: 1fr;
+
+    padding: 0 20px 70px;
+  }
+
+  .food-hero h1{
+
+    font-size: 45px;
+  }
+
+  .food-hero p{
+
+    font-size: 16px;
+
+    line-height: 28px;
+  }
+
+  .search-box{
+
+    width: 100%;
+  }
+
+  .food-buttons{
+
+    flex-direction: column;
+  }
+
+  .food-modal-content{
+
+    flex-direction: column;
+
+    height: auto;
+
+    width: 95%;
+  }
+
+  .modal-image{
+
+    width: 100%;
+
+    height: 250px;
+  }
+
+  .modal-details{
+
+    width: 100%;
+  }
+
+  .cart-item{
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .cart-actions{
+
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+
+  .cart-section{
+
+    padding: 70px 20px;
+  }
+
+  .dining-section{
+
+    padding: 70px 20px;
+  }
+}

@@ -1,0 +1,501 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================= RESET ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  transition: 0.4s ease;
+  background: #fff;
+}
+
+/* ========================= TYPOGRAPHY ========================= */
+
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+}
+
+/* ========================= GLOBAL SECTION ========================= */
+
+section {
+  padding: 80px 50px;
+}
+
+/* ========================= NAVBAR ========================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: black;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links li:hover {
+  color: #d4af37;
+}
+
+.login-btn {
+  padding: 14px 28px;
+  border: none;
+  background: #d4af37;
+  cursor: pointer;
+}
+
+/* ========================= HERO ========================= */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.45),
+    rgba(212,175,55,0.2)
+  );
+  z-index: 1;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 70px;
+  max-width: 700px;
+  line-height: 85px;
+  background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 32px;
+  margin-top: 20px;
+}
+
+/* ========================= EXPERIENCE SECTION ========================= */
+
+.experience {
+  padding: 100px 50px;
+  background: #f8f5ef;
+  min-height: 100vh;
+}
+
+.experience-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.experience-hero h1 {
+  font-size: 50px;
+  color: #111;
+}
+
+.experience-hero p {
+  font-size: 18px;
+  color: gray;
+  max-width: 700px;
+  margin: auto;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* ========================= GRID ========================= */
+
+.hotel-grid,
+.rooms-grid,
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* ========================= AUTH ========================= */
+
+.auth-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  width: 450px;
+  padding: 50px;
+  backdrop-filter: blur(15px);
+}
+
+/* ========================= FOOTER ========================= */
+
+.footer {
+  background: black;
+  color: white;
+  padding: 50px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 100px;
+}
+
+/* ========================= CONFIRMATION ========================= */
+
+.confirmation-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f5ef;
+}
+
+.confirmation-card {
+  width: 700px;
+  background: white;
+  padding: 70px 60px;
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 90px;
+  color: #d4af37;
+}
+
+/* ========================= PAYMENT ========================= */
+
+.payment-page {
+  min-height: 100vh;
+  background: #f8f5ef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.payment-container {
+  width: 1000px;
+  display: flex;
+  gap: 40px;
+}
+
+.payment-form {
+  flex: 2;
+  background: white;
+  padding: 50px;
+}
+
+.payment-form input {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.row input {
+  width: 50%;
+}
+
+.payment-form button {
+  width: 100%;
+  height: 60px;
+  background: #d4af37;
+  border: none;
+  cursor: pointer;
+}
+
+.payment-summary {
+  flex: 1;
+  background: #111;
+  color: white;
+  padding: 40px;
+}
+
+/* ========================= STATS ========================= */
+
+.stats {
+  padding: 120px 80px;
+  background: #111;
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-box {
+  padding: 60px 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-box h2 {
+  font-size: 60px;
+  color: #d4af37;
+}
+
+/* ========================= FAQ ========================= */
+
+.faq {
+  padding: 120px 80px;
+  background: #f8f5ef;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  cursor: pointer;
+}
+
+.faq-answer {
+  padding: 0 25px 25px;
+  color: gray;
+}
+
+/* ========================= LOADER (FINAL MERGED UPGRADED VERSION) ========================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #1a1b22, #0d0e12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.loader-content {
+  text-align: center;
+  color: #d4af37;
+}
+
+.loader-title {
+  font-size: 48px;
+  letter-spacing: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.loader-subtitle {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.loader-bar {
+  margin-top: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, transparent);
+  width: 0%;
+}
+
+/* ========================= SCROLL BAR ========================= */
+
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  z-index: 9999;
+  background: transparent;
+}
+
+.scroll-fill {
+  height: 100%;
+  width: 0%;
+  background: #d4af37;
+}
+
+/* ========================= DASHBOARD ========================= */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-sidebar {
+  width: 250px;
+  background: #111;
+  color: white;
+  padding: 30px;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 50px;
+  background: #f8f5ef;
+}
+
+/* ========================= ADMIN ========================= */
+
+.admin {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background: #000;
+  color: white;
+  padding: 30px;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 50px;
+  background: #f8f5ef;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.admin-card {
+  background: white;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.admin-card button {
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  background: #d4af37;
+  cursor: pointer;
+}
+
+/* ========================= RESPONSIVE ========================= */
+
+@media (max-width: 992px) {
+  .hotel-grid,
+  .rooms-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .payment-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+
+  .hotel-grid,
+  .rooms-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+    line-height: 55px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
