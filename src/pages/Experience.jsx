@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Experience = () => {
+const Experiences = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const sections = [
@@ -18,6 +18,7 @@ const Experience = () => {
         "Premium bedding experience",
       ],
     },
+
     {
       title: "Dining Experience",
       desc: "World-class dining with multi-cuisine options.",
@@ -32,6 +33,7 @@ const Experience = () => {
         "Chef special menu",
       ],
     },
+
     {
       title: "Spa & Wellness",
       desc: "Relax your body and mind with premium wellness services.",
@@ -41,6 +43,7 @@ const Experience = () => {
         "Luxury spa with aromatherapy, massage and wellness therapies.",
       items: ["Spa therapy", "Steam room", "Yoga sessions", "Aromatherapy"],
     },
+
     {
       title: "Activities & Recreation",
       desc: "Enjoy fun and fitness during your stay.",
@@ -49,93 +52,44 @@ const Experience = () => {
       details: "Indoor & outdoor sports with premium recreation zones.",
       items: ["Swimming pool", "Gym", "Indoor games", "Outdoor sports"],
     },
-    {
-      title: "Events & Celebrations",
-      desc: "Make your special moments unforgettable.",
-      image:
-        "https://imgs.search.brave.com/tAl3wdiB_L4AGj3VKQKUKEX0CYXhMpGyAw-kAz6gnaI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudHJ2bC1tZWRp/YS5jb20vbG9kZ2lu/Zy8xMTUwMDAwMDAv/MTE0MzcwMDAwLzEx/NDM2MDcwMC8xMTQz/NjA2MDQvMDczMzY0/OGIuanBnP2ltcG9s/aWN5PXJlc2l6ZWNy/b3Amcnc9Mjk3JnJh/PWZpdA",
-      details: "Luxury wedding & event planning with decoration themes.",
-      items: ["Wedding setup", "Birthday events", "Corporate halls", "Theme decor"],
-    },
-    {
-      title: "Local Experience",
-      desc: "Explore nearby attractions and culture.",
-      image:
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
-      details: "Guided tours and local cultural experiences.",
-      items: ["City tours", "Heritage visits", "Local food tours", "Taxi service"],
-    },
-    {
-      title: "Hotel Services",
-      desc: "Premium services for a smooth stay.",
-      image:
-        "https://imgs.search.brave.com/0-tC_pT2OyRtwb9q6Ct3ITASQfJ-075TnzWLMaXYe-w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMzEv/NDA4LzM0NC9zbWFs/bC9idXNpbmVzc21h/bi1vbi13b3JrLXRy/aXAtYXQtaG90ZWwt/dGFsa2luZy10by1m/cm9udC1kZXNrLXN0/YWZmLWFib3V0LXJv/b20tc2VydmljZXMt/YW5kLWNoZWNrLWlu/LXByb2Nlc3Mtd29t/YW4tc2hhcmluZy1p/bmZvcm1hdGlvbi13/aXRoLWltcG9ydGFu/dC1jbGllbnQtdHJh/dmVsbGluZy1mb3It/YnVzaW5lc3MtbWVl/dGluZ3MtcGhvdG8u/anBn",
-      details: "24/7 concierge and luxury hotel services.",
-      items: ["24/7 room service", "Concierge", "Laundry", "Airport pickup"],
-    },
-    {
-      title: "Guest Reviews",
-      desc: "Real experiences from happy guests.",
-      image:
-        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-      details: "Verified guest reviews and ratings.",
-      items: ["Verified reviews", "Ratings", "Guest photos", "Feedback"],
-    },
-    {
-      title: "Media Experience",
-      desc: "Visual journey of luxury hospitality.",
-      image:
-        "https://imgs.search.brave.com/uHb5gFrOPyf4pPSslxuva-63qqjJLTR5tH0029VGZU4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/ODgyMTY0YmQwNmI3/ZTBhM2NkODM0OTYv/Njg5M2E2MTM3MzY5/ZmVhZGY0NmUwM2Mz/X3NvY2lhbC1tZWRp/YS1pY29ucy1qcGcu/YXZpZg",
-      details: "Drone views, gallery and virtual tours.",
-      items: ["Gallery", "Virtual tour", "Drone view", "Videos"],
-    },
-    {
-      title: "Personalized Experience",
-      desc: "Tailored services for every guest.",
-      image:
-        "https://imgs.search.brave.com/tQCDwXc_ETTqMfP5GpNp6XBHFyXCoybPwhQa2euWNYU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9mcmFt/ZXJ1c2VyY29udGVu/dC5jb20vaW1hZ2Vz/L1R2U096SUI5UnNv/R2dyR3NwUHNoTHlY/dFRZLmpwZz93aWR0/aD0xNjAwJmhlaWdo/dD05MDA",
-      details: "Custom luxury experience as per guest needs.",
-      items: ["Custom setup", "Welcome message", "Honeymoon decor", "Special requests"],
-    },
-    
-    {
-  title: "Wedding & Grand Celebration",
-  desc: "Luxury wedding planning with royal arrangements.",
-  image:
-    "https://imgs.search.brave.com/LIfIWXmnVKv4x5ogzRgVrCnVBLAdGl_6j1Sl6js6n7k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/NDAzNjU1MC9waG90/by90aGUtd2VkZGlu/Zy1ldmVyeW9uZXMt/YmVlbi13YWl0aW5n/LWZvci5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9dHhnZjVU/U3c2bllQcEhkaW5n/SEZEREZsRThpVVdB/RlZVUGxEeERaNWg4/bz0",
-  details:
-    "Make your dream wedding unforgettable with royal decor, luxury venues, stage setup, lighting and full event management.",
-  items: [
-    "Royal wedding setup",
-    "Luxury stage decoration",
-    "DJ & lighting system",
-    "Catering & guest management",
-  ],
-},
-{
-  title: "Birthday & Private Party",
-  desc: "Exclusive celebration setup for your special day.",
-  image:
-    "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80",
-  details:
-    "Celebrate birthdays and private parties with balloons, themed decoration, cake arrangements and music setup.",
-  items: [
-    "Theme decoration",
-    "Cake & catering setup",
-    "Music & DJ system",
-    "Private party hall",
-  ],
-}
 
+    {
+      title: "Wedding & Grand Celebration",
+      desc: "Luxury wedding planning with royal arrangements.",
+      image:
+        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+      details:
+        "Make your dream wedding unforgettable with royal decor and luxury event management.",
+      items: [
+        "Royal wedding setup",
+        "Luxury stage decoration",
+        "DJ & lighting system",
+        "Catering management",
+      ],
+    },
 
-
+    {
+      title: "Birthday & Private Party",
+      desc: "Exclusive celebration setup for your special day.",
+      image:
+        "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=80",
+      details:
+        "Celebrate birthdays and private parties with luxury decoration.",
+      items: [
+        "Theme decoration",
+        "Cake setup",
+        "Music & DJ",
+        "Private party hall",
+      ],
+    },
   ];
 
   return (
     <section style={styles.container}>
-      <h1 style={styles.heading}>✨ Luxury Hotel Experience</h1>
+      <h1 style={styles.heading}>✨ Luxury Hotel Experiences</h1>
+
       <p style={styles.subHeading}>
-        Hover on cards to explore premium hospitality experience
+        Hover on cards to explore premium hospitality experiences
       </p>
 
       <div style={styles.grid}>
@@ -152,13 +106,15 @@ const Experience = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* IMAGE FIXED (FULL COVER + CLEAN VIEW) */}
+              {/* IMAGE */}
               <div style={styles.imageWrapper}>
                 <img src={item.image} alt={item.title} style={styles.image} />
               </div>
 
+              {/* CONTENT */}
               <div style={styles.content}>
                 <h2 style={styles.title}>{item.title}</h2>
+
                 <p style={styles.desc}>{item.desc}</p>
 
                 {/* HOVER DETAILS */}
@@ -187,7 +143,7 @@ const Experience = () => {
 };
 
 /* =========================
-    PREMIUM UI STYLES
+   PREMIUM UI STYLES
 ========================= */
 
 const styles = {
@@ -274,4 +230,4 @@ const styles = {
   },
 };
 
-export default Experience;
+export default Experiences;

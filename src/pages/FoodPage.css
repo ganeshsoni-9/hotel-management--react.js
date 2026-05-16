@@ -1,22 +1,36 @@
 /* =========================================================
+   GOOGLE FONT
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* =========================================================
    GLOBAL
 ========================================================= */
 
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
+  background:#0f0f0f;
+  color:white;
+  font-family:"Poppins",sans-serif;
+  overflow-x:hidden;
 }
 
 .food-page{
-  width: 100%;
-  background: #f8f5ef;
-  min-height: 100vh;
+  width:100%;
+  min-height:100vh;
+  background:
+    linear-gradient(
+      135deg,
+      #0f0f0f,
+      #1b1b1b,
+      #121212
+    );
 }
 
 /* =========================================================
@@ -25,99 +39,110 @@ body{
 
 .food-hero{
 
-  height: 70vh;
+  height:75vh;
 
   background:
     linear-gradient(
-      rgba(0,0,0,0.6),
-      rgba(0,0,0,0.6)
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.75)
     ),
     url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
 
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 
-  text-align: center;
-  color: white;
+  text-align:center;
 
-  padding: 20px;
+  padding:20px;
 }
 
 .food-hero h1{
 
-  font-size: 75px;
+  font-size:5rem;
 
-  font-family: "Playfair Display", serif;
+  font-family:"Playfair Display",serif;
 
-  margin-bottom: 20px;
+  margin-bottom:20px;
 
-  background: linear-gradient(
+  background:linear-gradient(
     90deg,
     #d4af37,
     #fff,
     #d4af37
   );
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .food-hero p{
 
-  font-size: 20px;
+  max-width:750px;
 
-  max-width: 700px;
+  color:#ddd;
 
-  line-height: 35px;
+  font-size:1.2rem;
+
+  line-height:35px;
 }
 
 /* =========================================================
-   SEARCH SECTION
+   SEARCH
 ========================================================= */
 
 .search-section{
 
-  padding: 50px;
+  padding:50px 20px;
 
-  display: flex;
-  justify-content: center;
+  display:flex;
+  justify-content:center;
 }
 
 .search-box{
 
-  width: 500px;
+  width:550px;
 
-  height: 60px;
+  background:rgba(255,255,255,0.08);
 
-  background: white;
+  backdrop-filter:blur(10px);
 
-  border-radius: 50px;
+  border:1px solid rgba(255,255,255,0.1);
 
-  display: flex;
-  align-items: center;
+  padding:18px 25px;
 
-  padding: 0 25px;
+  border-radius:60px;
 
-  gap: 15px;
+  display:flex;
+  align-items:center;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  gap:15px;
+}
+
+.search-box svg{
+  color:gold;
 }
 
 .search-box input{
 
-  width: 100%;
+  width:100%;
 
-  border: none;
-  outline: none;
+  border:none;
+  outline:none;
 
-  font-size: 16px;
+  background:transparent;
 
-  background: transparent;
+  color:white;
+
+  font-size:1rem;
+}
+
+.search-box input::placeholder{
+  color:#aaa;
 }
 
 /* =========================================================
@@ -126,13 +151,14 @@ body{
 
 .food-grid{
 
-  padding: 0 70px 100px;
+  padding:0 70px 100px;
 
-  display: grid;
+  display:grid;
 
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
 
-  gap: 35px;
+  gap:35px;
 }
 
 /* =========================================================
@@ -141,93 +167,114 @@ body{
 
 .food-card{
 
-  background: white;
+  background:rgba(255,255,255,0.05);
 
-  border-radius: 25px;
+  border-radius:28px;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  transition: 0.5s;
+  border:1px solid rgba(255,255,255,0.08);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition:0.5s;
+
+  backdrop-filter:blur(12px);
 }
 
 .food-card:hover{
 
-  transform: translateY(-12px);
+  transform:translateY(-12px);
 
-  box-shadow: 0 20px 45px rgba(212,175,55,0.3);
+  box-shadow:
+    0 25px 50px rgba(212,175,55,0.2);
 }
-
-/* IMAGE */
 
 .food-image{
 
-  width: 100%;
+  width:100%;
 
-  height: 260px;
+  height:270px;
 
-  object-fit: cover;
+  object-fit:cover;
+
+  transition:0.5s;
 }
 
-/* CONTENT */
+.food-card:hover .food-image{
+  transform:scale(1.05);
+}
 
 .food-content{
-
-  padding: 25px;
+  padding:25px;
 }
 
 .food-content h2{
 
-  font-size: 30px;
+  font-size:2rem;
 
-  margin-bottom: 15px;
+  margin-bottom:15px;
 
-  font-family: "Playfair Display", serif;
+  font-family:"Playfair Display",serif;
 }
 
 .food-content p{
 
-  color: #666;
+  color:#cfcfcf;
 
-  line-height: 28px;
+  line-height:28px;
 
-  margin-bottom: 20px;
+  margin-bottom:20px;
 }
 
-/* FOOD INFO */
+/* =========================================================
+   FOOD INFO
+========================================================= */
 
 .food-info{
 
-  display: flex;
+  display:flex;
 
-  justify-content: space-between;
+  flex-wrap:wrap;
 
-  margin-bottom: 20px;
+  gap:12px;
 
-  color: #555;
-
-  font-size: 14px;
+  margin-bottom:25px;
 }
 
 .food-info span{
 
-  display: flex;
+  background:rgba(255,255,255,0.08);
 
-  align-items: center;
+  border:1px solid rgba(255,255,255,0.08);
 
-  gap: 6px;
+  padding:10px 14px;
+
+  border-radius:30px;
+
+  display:flex;
+  align-items:center;
+
+  gap:8px;
+
+  font-size:14px;
+
+  color:#eee;
 }
 
-/* PRICE */
+.food-info svg{
+  color:gold;
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
 
 .food-content h3{
 
-  color: #d4af37;
+  color:gold;
 
-  font-size: 28px;
+  font-size:2rem;
 
-  margin-bottom: 20px;
+  margin-bottom:20px;
 }
 
 /* =========================================================
@@ -236,106 +283,107 @@ body{
 
 .food-buttons{
 
-  display: flex;
+  display:flex;
 
-  gap: 15px;
-
-  margin-top: 20px;
+  gap:15px;
 }
 
 .food-buttons button{
 
-  flex: 1;
+  flex:1;
 
-  height: 55px;
+  border:none;
 
-  border: none;
+  height:55px;
 
-  border-radius: 14px;
+  border-radius:15px;
 
-  font-size: 15px;
+  cursor:pointer;
 
-  font-weight: 700;
+  font-size:15px;
 
-  cursor: pointer;
+  font-weight:700;
 
-  display: flex;
+  transition:0.4s;
 
-  align-items: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  justify-content: center;
-
-  gap: 10px;
-
-  transition: 0.4s;
-
-  color: white;
+  gap:10px;
 }
 
 .food-buttons button:hover{
 
-  transform: scale(1.03);
+  transform:translateY(-3px);
 }
-
-/* ADD TO CART */
 
 .cart-btn{
 
-  background: linear-gradient(
+  background:linear-gradient(
     90deg,
     #d4af37,
     #f5d76e
   );
 
-  color: #111 !important;
+  color:black;
 }
-
-/* VIEW DETAILS */
 
 .view-btn{
 
-  background: #111;
+  background:white;
+
+  color:black;
 }
 
 /* =========================================================
    MODAL
 ========================================================= */
 
-.food-modal{
+.food-modal,
+.booking-overlay,
+.booking-form-overlay{
 
-  position: fixed;
+  position:fixed;
 
-  inset: 0;
+  inset:0;
 
-  background: rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.85);
 
-  display: flex;
+  display:flex;
 
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-items:center;
 
-  z-index: 999;
+  z-index:999;
+
+  padding:20px;
+
+  backdrop-filter:blur(10px);
 }
 
-.food-modal-content{
+.food-modal-content,
+.booking-card{
 
-  width: 850px;
+  width:100%;
 
-  max-width: 95%;
+  max-width:1100px;
 
-  height: 500px;
+  background:#181818;
 
-  background: white;
+  border-radius:30px;
 
-  border-radius: 20px;
+  overflow:hidden;
 
-  overflow: hidden;
+  display:grid;
 
-  display: flex;
+  grid-template-columns:1fr 1fr;
 
-  position: relative;
+  position:relative;
 
-  animation: popup 0.4s ease;
+  animation:popup 0.4s ease;
+
+  border:1px solid rgba(255,255,255,0.1);
 }
 
 /* =========================================================
@@ -345,13 +393,13 @@ body{
 @keyframes popup{
 
   from{
-    transform: scale(0.8);
-    opacity: 0;
+    transform:scale(0.8);
+    opacity:0;
   }
 
   to{
-    transform: scale(1);
-    opacity: 1;
+    transform:scale(1);
+    opacity:1;
   }
 }
 
@@ -359,330 +407,467 @@ body{
    CLOSE BUTTON
 ========================================================= */
 
-.close-btn{
+.close-btn,
+.booking-close,
+.form-close{
 
-  position: absolute;
+  position:absolute;
 
-  top: 18px;
+  top:20px;
+  right:20px;
 
-  right: 18px;
+  width:50px;
+  height:50px;
 
-  width: 42px;
+  border-radius:50%;
 
-  height: 42px;
+  border:none;
 
-  border-radius: 50%;
+  background:crimson;
 
-  border: none;
+  color:white;
 
-  background: rgba(0,0,0,0.6);
+  font-size:18px;
 
-  color: white;
+  cursor:pointer;
 
-  font-size: 18px;
+  z-index:10;
 
-  cursor: pointer;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  transition: 0.3s;
-
-  z-index: 10;
+  transition:0.4s;
 }
 
-.close-btn:hover{
+.close-btn:hover,
+.booking-close:hover,
+.form-close:hover{
 
-  background: crimson;
-
-  transform: rotate(90deg);
+  transform:rotate(180deg) scale(1.1);
 }
 
 /* =========================================================
    MODAL IMAGE
 ========================================================= */
 
-.modal-image{
+.modal-image,
+.booking-image-box img{
 
-  width: 50%;
+  width:100%;
+  height:100%;
 
-  height: 100%;
-
-  object-fit: cover;
+  object-fit:cover;
 }
 
 /* =========================================================
    MODAL DETAILS
 ========================================================= */
 
-.modal-details{
+.modal-details,
+.booking-content{
 
-  width: 50%;
+  padding:40px;
 
-  padding: 35px;
-
-  overflow-y: auto;
+  overflow-y:auto;
 }
 
-.modal-details h1{
+.modal-details h1,
+.booking-content h1{
 
-  font-size: 38px;
+  font-size:3rem;
 
-  margin-bottom: 20px;
+  margin-bottom:20px;
 
-  font-family: "Playfair Display", serif;
+  font-family:"Playfair Display",serif;
 }
 
-.modal-details p{
+.modal-details p,
+.booking-desc{
 
-  color: #555;
+  color:#ccc;
 
-  line-height: 30px;
+  line-height:32px;
 
-  margin-bottom: 20px;
+  margin-bottom:25px;
 }
-
-/* =========================================================
-   REVIEW
-========================================================= */
 
 .modal-review{
 
-  font-size: 18px;
+  color:gold;
 
-  font-weight: bold;
+  font-size:1.1rem;
 
-  color: #d4af37;
+  font-weight:700;
 
-  margin-bottom: 25px;
+  margin-bottom:25px;
 }
-
-/* =========================================================
-   BUTTON
-========================================================= */
 
 .modal-details button{
 
-  background: linear-gradient(
+  border:none;
+
+  background:linear-gradient(
     90deg,
     #d4af37,
     #f5d76e
   );
 
-  border: none;
+  padding:15px 25px;
 
-  padding: 14px 24px;
+  border-radius:12px;
 
-  border-radius: 10px;
+  cursor:pointer;
 
-  cursor: pointer;
+  font-weight:700;
 
-  font-weight: bold;
+  display:flex;
+  align-items:center;
 
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  transition: 0.3s;
-}
-
-.modal-details button:hover{
-
-  transform: scale(1.05);
+  gap:10px;
 }
 
 /* =========================================================
-   DINING SECTION
+   BOOKING CARD
 ========================================================= */
 
-.dining-section{
-
-  padding: 100px 70px;
-
-  background: #111;
-
-  color: white;
-
-  text-align: center;
+.booking-image-box{
+  position:relative;
 }
 
-.dining-section h1{
+.booking-badge{
 
-  font-size: 60px;
+  position:absolute;
 
-  margin-bottom: 50px;
+  top:25px;
+  left:25px;
 
-  font-family: "Playfair Display", serif;
+  background:gold;
+
+  color:black;
+
+  padding:10px 20px;
+
+  border-radius:40px;
+
+  font-weight:700;
 }
 
-.dining-grid{
+.booking-info{
 
-  display: grid;
+  display:flex;
 
-  grid-template-columns: repeat(2,1fr);
+  flex-wrap:wrap;
 
-  gap: 30px;
+  gap:15px;
+
+  margin:25px 0;
 }
 
-.dining-card{
+.booking-info div{
 
-  background: rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.08);
 
-  padding: 50px;
+  padding:14px 18px;
 
-  border-radius: 25px;
+  border-radius:14px;
 
-  transition: 0.4s;
+  display:flex;
+  align-items:center;
+
+  gap:10px;
 }
 
-.dining-card:hover{
-
-  transform: translateY(-10px);
-
-  background: rgba(255,255,255,0.12);
+.booking-info svg{
+  color:gold;
 }
 
-.dining-icon{
+.booking-price{
 
-  font-size: 50px;
+  font-size:3rem;
 
-  color: #d4af37;
+  color:gold;
 
-  margin-bottom: 20px;
+  font-weight:700;
+
+  margin:25px 0;
+}
+
+.booking-buttons{
+
+  display:flex;
+
+  gap:15px;
+}
+
+.book-btn{
+
+  flex:1;
+
+  border:none;
+
+  padding:18px;
+
+  border-radius:15px;
+
+  background:linear-gradient(
+    90deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  font-size:16px;
+}
+
+.wishlist-btn{
+
+  width:70px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:crimson;
+
+  color:white;
+
+  font-size:1.2rem;
+
+  cursor:pointer;
 }
 
 /* =========================================================
-   CART SECTION
+   BOOKING FORM
+========================================================= */
+
+.booking-form-card{
+
+  width:100%;
+
+  max-width:650px;
+
+  background:#181818;
+
+  border-radius:30px;
+
+  padding:40px;
+
+  position:relative;
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  animation:popup 0.4s ease;
+}
+
+.booking-form-card h1{
+
+  color:gold;
+
+  margin-bottom:10px;
+
+  font-size:2.5rem;
+}
+
+.booking-form-card p{
+
+  color:#bbb;
+
+  margin-bottom:30px;
+}
+
+.form-group{
+
+  width:100%;
+
+  height:60px;
+
+  background:#242424;
+
+  border-radius:15px;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:0 20px;
+
+  margin-bottom:20px;
+
+  gap:15px;
+}
+
+.form-group svg{
+  color:gold;
+}
+
+.form-group input{
+
+  width:100%;
+
+  background:transparent;
+
+  border:none;
+
+  outline:none;
+
+  color:white;
+
+  font-size:1rem;
+}
+
+.confirm-btn{
+
+  width:100%;
+
+  height:60px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:linear-gradient(
+    90deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.confirm-btn:hover{
+  transform:scale(1.02);
+}
+
+.success-message{
+
+  margin-top:20px;
+
+  background:green;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  text-align:center;
+
+  font-weight:600;
+}
+
+/* =========================================================
+   CART
 ========================================================= */
 
 .cart-section{
 
-  padding: 100px 70px;
+  padding:100px 70px;
 }
 
 .cart-section h1{
 
-  font-size: 55px;
+  font-size:4rem;
 
-  margin-bottom: 40px;
+  margin-bottom:40px;
 
-  font-family: "Playfair Display", serif;
+  font-family:"Playfair Display",serif;
 }
-
-/* CART ITEM */
 
 .cart-item{
 
-  background: white;
+  background:rgba(255,255,255,0.05);
 
-  padding: 25px;
+  border:1px solid rgba(255,255,255,0.08);
 
-  margin-bottom: 25px;
+  padding:25px;
 
-  border-radius: 20px;
+  border-radius:25px;
 
-  display: flex;
+  display:flex;
 
-  align-items: center;
+  align-items:center;
 
-  gap: 25px;
+  gap:25px;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom:25px;
 }
-
-/* CART IMAGE */
 
 .cart-image{
 
-  width: 130px;
+  width:150px;
 
-  height: 130px;
+  height:130px;
 
-  border-radius: 15px;
+  object-fit:cover;
 
-  object-fit: cover;
+  border-radius:18px;
 }
 
-/* CART DETAILS */
-
 .cart-details{
-
-  flex: 1;
+  flex:1;
 }
 
 .cart-details h3{
 
-  font-size: 26px;
+  font-size:2rem;
 
-  margin-bottom: 10px;
+  margin-bottom:10px;
 }
 
 .cart-desc{
 
-  color: #666;
+  color:#ccc;
 
-  line-height: 28px;
+  line-height:28px;
 
-  margin-bottom: 12px;
+  margin-bottom:15px;
 }
-
-/* ACTIONS */
 
 .cart-actions{
 
-  display: flex;
+  display:flex;
 
-  align-items: center;
+  align-items:center;
 
-  gap: 10px;
+  gap:12px;
 }
 
 .cart-actions button{
 
-  border: none;
+  width:45px;
+  height:45px;
 
-  background: #d4af37;
+  border:none;
 
-  color: black;
+  border-radius:12px;
 
-  padding: 12px;
+  cursor:pointer;
 
-  border-radius: 8px;
+  background:gold;
 
-  cursor: pointer;
-
-  transition: 0.3s;
+  color:black;
 }
-
-.cart-actions button:hover{
-
-  transform: scale(1.05);
-}
-
-/* DELETE */
 
 .delete-btn{
 
-  background: crimson !important;
+  background:crimson !important;
 
-  color: white !important;
+  color:white !important;
 }
-
-/* TOTAL */
 
 .total-price{
 
-  margin-top: 40px;
+  margin-top:40px;
 
-  text-align: right;
+  text-align:right;
 
-  font-size: 35px;
+  font-size:2.5rem;
 
-  color: #111;
+  color:gold;
 }
 
 /* =========================================================
@@ -692,93 +877,73 @@ body{
 @media(max-width:992px){
 
   .food-grid{
-
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .dining-grid{
+  .food-modal-content,
+  .booking-card{
+    grid-template-columns:1fr;
+  }
 
-    grid-template-columns: 1fr;
+  .food-hero h1{
+    font-size:3.5rem;
+  }
+
+  .modal-image,
+  .booking-image-box img{
+    height:350px;
   }
 }
-
-/* =========================================================
-   MOBILE RESPONSIVE
-========================================================= */
 
 @media(max-width:768px){
 
   .food-grid{
 
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
 
-    padding: 0 20px 70px;
+    padding:0 20px 70px;
+  }
+
+  .food-hero{
+    height:auto;
+    padding:100px 20px;
   }
 
   .food-hero h1{
-
-    font-size: 45px;
-  }
-
-  .food-hero p{
-
-    font-size: 16px;
-
-    line-height: 28px;
+    font-size:2.8rem;
   }
 
   .search-box{
-
-    width: 100%;
+    width:100%;
   }
 
-  .food-buttons{
-
-    flex-direction: column;
+  .food-buttons,
+  .booking-buttons{
+    flex-direction:column;
   }
 
-  .food-modal-content{
-
-    flex-direction: column;
-
-    height: auto;
-
-    width: 95%;
-  }
-
-  .modal-image{
-
-    width: 100%;
-
-    height: 250px;
-  }
-
-  .modal-details{
-
-    width: 100%;
-  }
-
-  .cart-item{
-
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
-
-  .cart-actions{
-
-    width: 100%;
-
-    justify-content: flex-start;
+  .modal-details,
+  .booking-content,
+  .booking-form-card{
+    padding:25px;
   }
 
   .cart-section{
-
-    padding: 70px 20px;
+    padding:70px 20px;
   }
 
-  .dining-section{
+  .cart-item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
-    padding: 70px 20px;
+  .cart-image{
+    width:100%;
+    height:220px;
+  }
+
+  .wishlist-btn{
+    width:100%;
+    height:60px;
   }
 }

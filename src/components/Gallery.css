@@ -1,0 +1,363 @@
+.gallery{
+  padding:80px 7%;
+  background:#0f172a;
+  min-height:100vh;
+}
+
+/* =========================
+        TITLE
+========================= */
+
+.gallery-title{
+  text-align:center;
+  font-size:55px;
+  color:white;
+  margin-bottom:20px;
+  font-weight:700;
+}
+
+.gallery-subtitle{
+  text-align:center;
+  color:#cbd5e1;
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  font-size:18px;
+  margin-bottom:60px;
+}
+
+/* =========================
+        GRID
+========================= */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+}
+
+/* =========================
+        CARD
+========================= */
+
+.gallery-card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  transition:0.5s;
+  position:relative;
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.3);
+}
+
+.gallery-card:hover{
+  transform:translateY(-12px);
+}
+
+/* =========================
+        IMAGE
+========================= */
+
+.gallery-image-wrapper{
+  position:relative;
+  overflow:hidden;
+}
+
+.gallery-image{
+  width:100%;
+  height:270px;
+  object-fit:cover;
+  transition:0.7s;
+}
+
+.gallery-card:hover .gallery-image{
+  transform:scale(1.15);
+}
+
+/* =========================
+        RATING
+========================= */
+
+.gallery-rating{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:gold;
+  color:black;
+  padding:8px 14px;
+  border-radius:30px;
+  display:flex;
+  gap:6px;
+  align-items:center;
+  font-weight:700;
+}
+
+/* =========================
+        CONTENT
+========================= */
+
+.gallery-content{
+  padding:25px;
+}
+
+.gallery-content h3{
+  font-size:28px;
+  margin-bottom:15px;
+  color:#111827;
+}
+
+.gallery-content p{
+  color:#6b7280;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* =========================
+        LOCATION & FEATURE
+========================= */
+
+.gallery-location,
+.gallery-feature{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+  font-size:17px;
+  color:#374151;
+}
+
+.gallery-feature svg{
+  color:#f59e0b;
+}
+
+/* =========================
+        BUTTON
+========================= */
+
+.gallery-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  background:
+  linear-gradient(to right,#f59e0b,#ef4444);
+  color:white;
+  font-size:17px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:0.5s;
+  font-weight:600;
+}
+
+.gallery-btn:hover{
+  transform:scale(1.05);
+}
+
+/* =========================
+      POPUP OVERLAY
+========================= */
+
+.popup-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.75);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  padding:20px;
+}
+
+/* =========================
+        POPUP CARD
+========================= */
+
+.popup-card{
+  width:420px;
+  max-height:90vh;
+  overflow-y:auto;
+  background:white;
+  border-radius:25px;
+  position:relative;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================
+        IMAGE
+========================= */
+
+.popup-image{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* =========================
+        CONTENT
+========================= */
+
+.popup-content{
+  padding:25px;
+}
+
+.popup-content h2{
+  font-size:30px;
+  margin-bottom:15px;
+  color:#111827;
+}
+
+.popup-desc{
+  color:#6b7280;
+  line-height:1.8;
+  margin-bottom:20px;
+  font-size:15px;
+}
+
+/* =========================
+        REVIEW BOX
+========================= */
+
+.review-box{
+  background:#f3f4f6;
+  padding:15px;
+  border-radius:14px;
+  margin-bottom:20px;
+}
+
+.review-box h4{
+  margin-bottom:10px;
+  color:#111827;
+}
+
+.review-box p{
+  color:#6b7280;
+  line-height:1.7;
+}
+
+/* =========================
+        INFO
+========================= */
+
+.popup-info{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+  font-weight:600;
+  color:#374151;
+}
+
+.popup-price{
+  color:#f59e0b;
+  margin-bottom:20px;
+  font-size:28px;
+}
+
+/* =========================
+        FACILITIES
+========================= */
+
+.facilities{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.facility-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#374151;
+  font-size:16px;
+}
+
+.facility-item svg{
+  color:#10b981;
+}
+
+/* =========================
+        BOOK BUTTON
+========================= */
+
+.book-btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  background:linear-gradient(to right,#f59e0b,#ef4444);
+  color:white;
+  font-size:18px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:0.4s;
+  font-weight:700;
+}
+
+.book-btn:hover{
+  transform:scale(1.04);
+}
+
+/* =========================
+        SUBMIT BUTTON
+========================= */
+
+.submit-btn{
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  background:#28a745;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.submit-btn:hover{
+  background:#218838;
+  transform:scale(1.02);
+}
+
+/* =========================
+        CLOSE BUTTON
+========================= */
+
+.close-popup{
+  position:absolute;
+  top:50px;
+  right:15px;
+  width:42px;
+  height:42px;
+  border:none;
+  background:red;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  z-index:10;
+  font-size:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.close-popup:hover{
+  background:#ef4444;
+  color:white;
+}
+
+/* =========================
+        MOBILE
+========================= */
+
+@media(max-width:500px){
+
+  .popup-card{
+    width:100%;
+  }
+
+}

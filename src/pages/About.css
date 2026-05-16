@@ -1,0 +1,150 @@
+.about {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+
+  /* 🌟 ROYAL BACKGROUND */
+  background: radial-gradient(circle at top,
+      #1a1a2e 0%,
+      #0f0f1a 40%,
+      #0a0a12 100%);
+  color: #fff;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* HERO SECTION */
+.about-hero {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8?auto=format&fit=crop&w=1400&q=80");
+
+  background-size: cover;
+  background-position: center;
+
+  border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.about-hero h1 {
+  font-size: 52px;
+  color: #d4af37; /* GOLD */
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.tagline {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* CONTAINER */
+.about-container {
+  padding: 50px 10%;
+}
+
+/* HEADINGS */
+.about-container h2 {
+  margin-top: 40px;
+  font-size: 28px;
+  color: #d4af37;
+  border-left: 4px solid #d4af37;
+  padding-left: 10px;
+}
+
+/* TEXT */
+.about-container p {
+  color: #ddd;
+  line-height: 1.8;
+}
+
+/* GRID */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* CARDS (GLASS EFFECT) */
+.about-box {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: 0.4s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-10px);
+  border: 1px solid #d4af37;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+/* IMAGE */
+.about-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.about-box:hover img {
+  transform: scale(1.1);
+}
+
+/* CONTENT */
+.content {
+  padding: 15px;
+}
+
+.about-box h3 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.about-box p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* SERVICES LIST */
+.services-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.services-list li {
+  margin: 10px 0;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.services-list li:hover {
+  color: #d4af37;
+}
+
+/* HIGHLIGHT BOX */
+.highlight {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #d4af37, #8b7500);
+  color: #000;
+  font-weight: bold;
+  border-radius: 12px;
+
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}

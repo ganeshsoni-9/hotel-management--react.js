@@ -1,23 +1,62 @@
 import "./Navbar.css";
 
-import { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+} from "react";
 
-import { useNavigate, Link } from "react-router-dom";
+import {
+  useNavigate,
+  Link,
+} from "react-router-dom";
 
 import {
   FaBars,
   FaTimes,
   FaMoon,
-  FaSun
+  FaSun,
+  FaUser,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
 const Navbar = () => {
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] =
+    useState(false);
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] =
+    useState(false);
+
+  const [user, setUser] =
+    useState(null);
 
   const navigate = useNavigate();
+
+  /* =========================
+        LOGIN STATUS
+  ========================== */
+
+  const isLoggedIn =
+    localStorage.getItem(
+      "isLoggedIn"
+    );
+
+  /* =========================
+        LOAD USER
+  ========================== */
+
+  useEffect(() => {
+
+    const savedUser =
+      localStorage.getItem("user");
+
+    if (savedUser) {
+
+      setUser(JSON.parse(savedUser));
+
+    }
+
+  }, []);
 
   /* =========================
         DARK MODE
@@ -29,9 +68,21 @@ const Navbar = () => {
 
       document.body.classList.add("dark");
 
+      document.body.style.background =
+        "#111";
+
+      document.body.style.color =
+        "#fff";
+
     } else {
 
       document.body.classList.remove("dark");
+
+      document.body.style.background =
+        "#fff";
+
+      document.body.style.color =
+        "#000";
 
     }
 
@@ -44,6 +95,38 @@ const Navbar = () => {
   const closeMenu = () => {
 
     setMenuOpen(false);
+
+  };
+
+  /* =========================
+        LOGOUT
+  ========================== */
+
+  const handleLogout = () => {
+
+    // REMOVE LOGIN STATUS
+
+    localStorage.removeItem(
+      "isLoggedIn"
+    );
+
+    // REMOVE USER
+
+    localStorage.removeItem(
+      "user"
+    );
+
+    // RESET USER
+
+    setUser(null);
+
+    // GO TO AUTH PAGE
+
+    navigate("/auth");
+
+    // REFRESH PAGE
+
+    window.location.reload();
 
   };
 
@@ -61,10 +144,10 @@ const Navbar = () => {
       >
 
         <img
-  src="/hotellogo.png"
-  alt="logo"
-  className="logo-image"
-/>
+          src="/hotellogo.png"
+          alt="logo"
+          className="logo-image"
+        />
 
         <h2>ROYAL STAY HUB</h2>
 
@@ -77,8 +160,14 @@ const Navbar = () => {
       <ul className="nav-links">
 
         <li>
-          <Link to="/search-hotels">
+          <Link to="/rooms">
             ROOMS
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/about">
+            ABOUT
           </Link>
         </li>
 
@@ -95,15 +184,22 @@ const Navbar = () => {
         </li>
 
         <li>
+          <Link to="/food">
+            FOOD
+          </Link>
+        </li>
+
+        <li>
           <Link to="/events">
             EVENTS
           </Link>
         </li>
+
         <li>
-  <Link to="/food">
-    FOOD
-  </Link>
-</li>
+          <Link to="/contact">
+            CONTACT
+          </Link>
+        </li>
 
       </ul>
 
@@ -117,7 +213,9 @@ const Navbar = () => {
 
         <div
           className="theme-toggle"
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={() =>
+            setDarkMode(!darkMode)
+          }
         >
 
           {
@@ -128,11 +226,71 @@ const Navbar = () => {
 
         </div>
 
-        {/* HAMBURGER */}
+        {/* =========================
+              LOGIN / LOGOUT
+        ========================== */}
+
+        {
+          !isLoggedIn ? (
+
+            <button
+              className="login-btn"
+              onClick={() =>
+                navigate("/auth")
+              }
+            >
+
+              Login / Signup
+
+            </button>
+
+          ) : (
+
+            <div className="user-info">
+
+              {/* USER EMAIL */}
+
+              {
+                user && (
+
+                  <span className="welcome-user">
+
+                    <FaUser />
+
+                    {user.email}
+
+                  </span>
+
+                )
+              }
+
+              {/* LOGOUT BUTTON */}
+
+              <button
+                className="logout-btn"
+                onClick={handleLogout}
+              >
+
+                <FaSignOutAlt />
+
+                Logout
+
+              </button>
+
+            </div>
+
+          )
+        }
+
+        {/* =========================
+              HAMBURGER
+        ========================== */}
 
         <div
           className="menu-icon"
-          onClick={() => setMenuOpen(true)}
+          onClick={() =>
+            setMenuOpen(true)
+          }
         >
 
           <FaBars />
@@ -146,10 +304,12 @@ const Navbar = () => {
       ========================== */}
 
       <div
-        className={`mobile-menu ${menuOpen ? "active" : ""}`}
+        className={`mobile-menu ${
+          menuOpen ? "active" : ""
+        }`}
       >
 
-        {/* TOP */}
+        {/* MOBILE TOP */}
 
         <div className="mobile-top">
 
@@ -164,11 +324,13 @@ const Navbar = () => {
 
           </div>
 
-          {/* MOBILE DARK MODE */}
+          {/* DARK MODE */}
 
           <div
             className="theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={() =>
+              setDarkMode(!darkMode)
+            }
           >
 
             {
@@ -187,10 +349,19 @@ const Navbar = () => {
 
           <li>
             <Link
-              to="/search-hotels"
+              to="/rooms"
               onClick={closeMenu}
             >
               ROOMS
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/about"
+              onClick={closeMenu}
+            >
+              ABOUT
             </Link>
           </li>
 
@@ -214,11 +385,75 @@ const Navbar = () => {
 
           <li>
             <Link
+              to="/food"
+              onClick={closeMenu}
+            >
+              FOOD
+            </Link>
+          </li>
+
+          <li>
+            <Link
               to="/events"
               onClick={closeMenu}
             >
               EVENTS
             </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/contact"
+              onClick={closeMenu}
+            >
+              CONTACT
+            </Link>
+          </li>
+
+          {/* =========================
+                MOBILE LOGIN / LOGOUT
+          ========================== */}
+
+          <li>
+
+            {
+              !isLoggedIn ? (
+
+                <button
+                  className="login-btn mobile-login"
+                  onClick={() => {
+
+                    navigate("/auth");
+
+                    closeMenu();
+
+                  }}
+                >
+
+                  LOGIN / SIGNUP
+
+                </button>
+
+              ) : (
+
+                <button
+                  className="logout-btn mobile-logout"
+                  onClick={() => {
+
+                    handleLogout();
+
+                    closeMenu();
+
+                  }}
+                >
+
+                  LOGOUT
+
+                </button>
+
+              )
+            }
+
           </li>
 
         </ul>

@@ -1,33 +1,72 @@
+import { Link } from "react-router-dom";
+
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="footer">
 
-      <h3>SUBSCRIBE FOR LATEST UPDATES</h3>
+      {/* NEWSLETTER */}
+      <div className="footer-top">
+        <h2>SUBSCRIBE FOR LATEST OFFERS</h2>
+      </div>
 
-      <input
-        type="email"
-        placeholder="Enter your email"
-      />
-
+      {/* LINKS SECTION */}
       <div className="footer-links">
 
-        <div>
-          <h4>QUICK LINKS</h4>
-          <p>Hotels</p>
-          <p>Dining</p>
-          <p>Offers</p>
+        <div className="footer-box">
+          <h3>🏨 HOTEL</h3>
+
+          <div className="footer-items">
+            <Link to="/about">ABOUT</Link><br />
+            <Link to="/offers">OFFERS</Link><br />
+            <Link to="/food">FOOD</Link><br />
+            <Link to="/events">EVENTS</Link><br />
+            <Link to="/contact">CONTACT</Link>
+          </div>
         </div>
 
-        <div>
-          <h4>CUSTOMER SUPPORT</h4>
-          <p>contacttaj@tajhotels.com</p>
+        <div className="footer-box">
+          <h3>📞 SUPPORT</h3>
+
+          <div className="footer-items">
+            <Link to="/contact">Contact Us</Link><br />
+            <Link to="/help">Help Center</Link>
+          </div>
+        </div>
+
+        <div className="footer-box">
+          <h3>🌐 FOLLOW US</h3>
+
+          <div className="social">
+
+  <a href="https://www.facebook.com/share/1HWSVQktge/" target="_blank" rel="noreferrer">
+    <FaFacebookF />
+  </a>
+
+  <a href="https://www.instagram.com/ganesh_soni_99?igsh=MTNvOXgzMjN2bm9hNA==" target="_blank" rel="noreferrer">
+    <FaInstagram />
+  </a>
+
+  <a href="https://youtube.com/@ganeshsoni-y5k?si=twlzK4WhQsvgMxHZ" target="_blank" rel="noreferrer">
+    <FaYoutube />
+  </a>
+
+</div>
         </div>
 
       </div>
 
-      <p>
-        © 2026 The Indian Hotels Company Limited
-      </p>
+      {/* BOTTOM */}
+      <div className="footer-bottom"><br /><br />
+        <p>© 2026 Royal Stay Hub. All Rights Reserved.</p>
+        <p>Luxury Hospitality Experience</p>
+      </div>
 
     </footer>
   );

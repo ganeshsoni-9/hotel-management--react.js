@@ -1,0 +1,97 @@
+.footer {
+  background: #111;
+  color: white;
+  padding: 60px 10%;
+}
+
+/* TOP */
+.footer-top {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.footer-top h2 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px; /* YEH MAIN GAP HAI */
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-box h3 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: gold;
+}
+
+.footer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* ITEMS KE BEECH GAP */
+}
+
+.footer-items p {
+  margin: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-items p:hover {
+  color: gold;
+  transform: translateX(5px);
+}
+
+/* SOCIAL */
+.social {
+  display: flex;
+  gap: 20px; /* ICONS KE BEECH GAP */
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.social svg {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social svg:hover {
+  color: gold;
+  transform: scale(1.2);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #ccc;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  
+}

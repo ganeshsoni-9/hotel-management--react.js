@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import {
   Routes,
@@ -8,6 +8,12 @@ import {
 
 /* TOAST */
 import { Toaster } from "react-hot-toast";
+
+/* COMPONENTS */
+import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 /* PAGES */
 import Home from "./pages/Home";
@@ -19,25 +25,20 @@ import UserDashboard from "./pages/UserDashboard";
 import AdminPanel from "./pages/AdminPanel";
 import Experiences from "./pages/Experience";
 import Offers from "./pages/Offers";
-import Event from "./pages/Events";
 import FoodPage from "./pages/FoodPage";
-
-
-/* NEW EVENT PAGES */
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Rooms from "./pages/Rooms";
+import EventsPage from "./pages/EventsPage";
 import BookingPage from "./pages/BookingPage";
-import EventDetails from "./pages/EventDetails";
 
-/* COMPONENTS */
-import Loader from "./components/Loader";
-import ScrollProgressBar from "./components/ScrollProgressBar";
+/* AUTH PAGES */
+import AuthPage from "./pages/AuthPage";
 
 function App() {
 
-  /* =========================
-      LOADING STATE
-  ========================== */
-
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] =
+    useState(true);
 
   return (
 
@@ -59,12 +60,20 @@ function App() {
       {loading ? (
 
         <Loader
-          onFinish={() => setLoading(false)}
+          onFinish={() =>
+            setLoading(false)
+          }
         />
 
       ) : (
 
         <>
+
+          {/* =========================
+                NAVBAR
+          ========================== */}
+
+          <Navbar />
 
           {/* =========================
                 SCROLL BAR
@@ -78,102 +87,253 @@ function App() {
 
           <Routes>
 
-            {/* HOME */}
+            {/* =========================
+                  AUTH PAGE
+            ========================== */}
+
+            <Route
+              path="/auth"
+              element={<AuthPage />}
+            />
+
+            {/* LOGIN */}
+
+            
+
+            {/* =========================
+                  HOME
+            ========================== */}
 
             <Route
               path="/"
-              element={<Home />}
+              element={
+                <ProtectedRoute>
+
+                  <Home />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* SEARCH HOTELS */}
+            {/* =========================
+                  SEARCH HOTELS
+            ========================== */}
 
             <Route
               path="/search-hotels"
-              element={<SearchHotels />}
+              element={
+                <ProtectedRoute>
+
+                  <SearchHotels />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* HOTEL DETAILS */}
+            {/* =========================
+                  HOTEL DETAILS
+            ========================== */}
 
             <Route
               path="/hotel-details/:id"
-              element={<HotelDetails />}
+              element={
+                <ProtectedRoute>
+
+                  <HotelDetails />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* PAYMENT */}
+            {/* =========================
+                  PAYMENT
+            ========================== */}
 
             <Route
               path="/payment"
-              element={<Payment />}
+              element={
+                <ProtectedRoute>
+
+                  <Payment />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* BOOKING CONFIRMATION */}
+            {/* =========================
+                  BOOKING CONFIRMATION
+            ========================== */}
 
             <Route
               path="/booking-confirmation"
-              element={<BookingConfirmation />}
+              element={
+                <ProtectedRoute>
+
+                  <BookingConfirmation />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* USER DASHBOARD */}
+            {/* =========================
+                  USER DASHBOARD
+            ========================== */}
 
             <Route
               path="/dashboard"
-              element={<UserDashboard />}
+              element={
+                <ProtectedRoute>
+
+                  <UserDashboard />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* ADMIN PANEL */}
+            {/* =========================
+                  ADMIN PANEL
+            ========================== */}
 
             <Route
               path="/admin"
-              element={<AdminPanel />}
+              element={
+                <ProtectedRoute>
+
+                  <AdminPanel />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* EXPERIENCE */}
+            {/* =========================
+                  EXPERIENCE
+            ========================== */}
 
             <Route
               path="/experience"
-              element={<Experiences />}
+              element={
+                <ProtectedRoute>
+
+                  <Experiences />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* OFFERS */}
+            {/* =========================
+                  OFFERS
+            ========================== */}
 
             <Route
               path="/offers"
-              element={<Offers />}
+              element={
+                <ProtectedRoute>
+
+                  <Offers />
+
+                </ProtectedRoute>
+              }
             />
 
-            {/* EVENTS */}
-
-            <Route
-              path="/more"
-              element={<Event />}
-            />
-
-            {/* EVENT BOOKING */}
-
-            <Route
-              path="/booking"
-              element={<BookingPage />}
-            />
-
-            {/* EVENT DETAILS */}
-
-            <Route
-              path="/event/:id"
-              element={<EventDetails />}
-            />
-
-            {/* INVALID ROUTE */}
-
-            <Route
-              path="*"
-              element={<Navigate to="/" />}
-            />
-
-            {/* FOOD */}
+            {/* =========================
+                  FOOD
+            ========================== */}
 
             <Route
               path="/food"
-              element={<FoodPage />}
+              element={
+                <ProtectedRoute>
+
+                  <FoodPage />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  EVENTS
+            ========================== */}
+
+            <Route
+              path="/events"
+              element={
+                <ProtectedRoute>
+
+                  <EventsPage />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  EVENT BOOKING
+            ========================== */}
+
+            <Route
+              path="/booking"
+              element={
+                <ProtectedRoute>
+
+                  <BookingPage />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  ABOUT
+            ========================== */}
+
+            <Route
+              path="/about"
+              element={
+                <ProtectedRoute>
+
+                  <About />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  CONTACT
+            ========================== */}
+
+            <Route
+              path="/contact"
+              element={
+                <ProtectedRoute>
+
+                  <Contact />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  ROOMS
+            ========================== */}
+
+            <Route
+              path="/rooms"
+              element={
+                <ProtectedRoute>
+
+                  <Rooms />
+
+                </ProtectedRoute>
+              }
+            />
+
+            {/* =========================
+                  INVALID ROUTE
+            ========================== */}
+
+            <Route
+              path="*"
+              element={
+                <Navigate to="/auth" />
+              }
             />
 
           </Routes>

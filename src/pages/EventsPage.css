@@ -1,0 +1,490 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.events-page {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 40px;
+  color: white;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.events-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.events-hero h1 {
+  font-size: 55px;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #ff0080, #7928ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.events-hero p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 18px;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+/* =====================================================
+   EVENT CARD
+===================================================== */
+
+.event-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.event-image-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-image-box img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.event-card:hover img {
+  transform: scale(1.1);
+}
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.event-card:hover .overlay {
+  opacity: 1;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.explore-btn,
+.book-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.explore-btn {
+  background: white;
+  color: black;
+}
+
+.book-btn {
+  background: #ff0080;
+  color: white;
+}
+
+.explore-btn:hover {
+  transform: scale(1.1);
+}
+
+.book-btn:hover {
+  background: #ff4da6;
+  transform: scale(1.1);
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.event-content {
+  padding: 25px;
+}
+
+.icon {
+  font-size: 28px;
+  color: #ff0080;
+  margin-bottom: 15px;
+}
+
+.event-content h2 {
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.event-content p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   BOOKING MODAL
+===================================================== */
+
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+  padding: 20px;
+}
+
+.booking-form {
+  width: 100%;
+  max-width: 500px;
+
+  background: #111827;
+
+  padding: 35px;
+  border-radius: 20px;
+
+  position: relative;
+
+  animation: popup 0.4s ease;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #ff0080;
+}
+
+.booking-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+/* =====================================================
+   SELECTED EVENT
+===================================================== */
+
+.selected-box {
+  margin-bottom: 20px;
+}
+
+.selected-box label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.selected-input {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ff0080 !important;
+  font-weight: bold;
+}
+
+/* =====================================================
+   FORM INPUTS
+===================================================== */
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  margin-bottom: 18px;
+
+  padding: 14px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  border: 1px solid #ff0080;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.booking-form textarea {
+  resize: none;
+}
+
+/* =====================================================
+   CONFIRM BUTTON
+===================================================== */
+
+.confirm-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: #25d366;
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.confirm-btn:hover {
+  transform: scale(1.03);
+  background: #1ebe5d;
+}
+
+/* =====================================================
+   EXPLORE MODAL
+===================================================== */
+
+.explore-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+
+  backdrop-filter: blur(10px);
+}
+
+.explore-card {
+  width: 90%;
+  max-width: 950px;
+
+  background: #fff;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+  animation: explorePopup 0.5s ease;
+}
+
+@keyframes explorePopup {
+  from {
+    transform: scale(0.7) translateY(80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.explore-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explore-content {
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explore-icon {
+  font-size: 40px;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+.explore-content h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.explore-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  text-align: justify;
+}
+
+.explore-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 45px;
+  height: 45px;
+
+  background: #ff4d6d;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  z-index: 100;
+
+  transition: 0.3s;
+}
+
+.explore-close:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  .events-page {
+    padding: 20px;
+  }
+
+  .events-hero h1 {
+    font-size: 38px;
+  }
+
+  .event-content h2 {
+    font-size: 24px;
+  }
+
+  .booking-form {
+    padding: 25px;
+  }
+
+  .booking-form h2 {
+    font-size: 26px;
+  }
+
+  /* EXPLORE CARD */
+
+  .explore-card {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .explore-card img {
+    height: 280px;
+  }
+
+  .explore-content {
+    padding: 25px;
+  }
+
+  .explore-content h2 {
+    font-size: 28px;
+  }
+
+  .explore-content p {
+    font-size: 15px;
+  }
+}

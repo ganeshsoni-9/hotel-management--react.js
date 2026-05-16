@@ -1,308 +1,901 @@
 import React, { useState } from "react";
-import { FaStar, FaTimes } from "react-icons/fa";
+
+import {
+  FaStar,
+  FaTimes,
+  FaMapMarkerAlt,
+  FaWifi,
+  FaSwimmingPool,
+  FaSpa,
+  FaCocktail,
+  FaUtensils,
+  FaArrowLeft,
+  FaHeart,
+  FaFire,
+  FaCrown,
+  FaGem,
+  FaClock,
+  FaUsers,
+  FaBed,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const offersData = [
   {
     id: 1,
     title: "Luxury Escape",
-    desc: "Experience world-class luxury stays with private suites, infinity pools, gourmet dining, spa treatments, and personalized hospitality. This package is designed for travelers who want ultimate comfort, elegance, and unforgettable premium vacation experience with top-class services and scenic views in a peaceful environment.",
-    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+
+    shortDesc:
+      "Experience world-class luxury stays with private suites, infinity pools and personalized hospitality.",
+
+    fullDesc:
+      "Luxury Escape offers an unforgettable premium vacation experience designed for travelers who love elegance and comfort.",
+
+    img:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+
     rating: 4.8,
+    location: "Dubai, UAE",
+    price: "₹45,999",
+    reviews: "2.4k Reviews",
+    tag: "Trending",
+    duration: "4 Nights",
+    guests: "2 Guests",
+    room: "Luxury Suite",
   },
+
   {
     id: 2,
     title: "Beach Paradise",
-    desc: "Relax in crystal-clear beaches with premium resorts, sunset views, water sports, private villas, and beachfront luxury services. Perfect for travelers seeking tropical vibes, adventure activities, peaceful surroundings, and unforgettable ocean experiences with world-class comfort.",
-    img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+
+    shortDesc:
+      "Relax in crystal-clear beaches with premium resorts and unforgettable ocean experiences.",
+
+    fullDesc:
+      "Beach Paradise is a dream destination for travelers who enjoy tropical beauty, ocean views, and peaceful luxury living.",
+
+    img:
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+
     rating: 4.7,
+    location: "Maldives",
+    price: "₹52,999",
+    reviews: "1.8k Reviews",
+    tag: "Hot Deal",
+    duration: "5 Nights",
+    guests: "2 Guests",
+    room: "Ocean Villa",
   },
+
   {
     id: 3,
     title: "Mountain Retreat",
-    desc: "Enjoy peaceful mountain stays surrounded by nature, wooden cottages, fresh air, bonfire nights, and breathtaking sunrise views. This retreat is perfect for relaxation, meditation, and escaping city life while enjoying natural beauty and calm surroundings.",
-    img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+
+    shortDesc:
+      "Enjoy peaceful mountain stays surrounded by nature and breathtaking sunrise views.",
+
+    fullDesc:
+      "Mountain Retreat provides a peaceful escape surrounded by green valleys, snowy mountains, and refreshing natural beauty.",
+
+    img:
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+
     rating: 4.6,
+    location: "Manali, India",
+    price: "₹29,999",
+    reviews: "3.1k Reviews",
+    tag: "Popular",
+    duration: "3 Nights",
+    guests: "4 Guests",
+    room: "Wooden Cottage",
   },
-  {
-    id: 4,
-    title: "Royal Palace",
-    desc: "Stay in heritage royal palaces featuring grand architecture, luxury suites, cultural richness, traditional hospitality, and modern comfort. Experience royal lifestyle with premium services and historical elegance combined with luxury and comfort.",
-    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-    rating: 4.9,
-  },
-  {
-    id: 5,
-    title: "City Lights",
-    desc: "Luxury city hotels with skyline views, fine dining, nightlife access, modern interiors, and premium comfort. Ideal for business travelers and tourists who want to experience vibrant urban lifestyle with elegance and convenience.",
-    img: "https://images.unsplash.com/photo-1494526585095-c41746248156",
-    rating: 4.5,
-  },
-  {
-    id: 6,
-    title: "Honeymoon Special",
-    desc: "Romantic luxury stays with private villas, candlelight dinners, flower decorations, scenic views, and couple spa experiences. Designed for unforgettable honeymoon memories and peaceful romantic getaways in beautiful destinations.",
-    img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
-    rating: 4.8,
-  },
-  {
-    id: 7,
-    title: "Desert Safari",
-    desc: "Luxury desert camps with camel rides, cultural shows, bonfire nights, traditional food, and star-lit skies. Experience adventure and culture together in a unique desert environment with premium comfort and hospitality.",
-    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    rating: 4.6,
-  },
-  {
-    id: 8,
-    title: "Island Resort",
-    desc: "Private island resorts with ocean views, beach access, luxury villas, and exclusive services. Enjoy peaceful surroundings, crystal-clear waters, and premium hospitality in a tropical paradise environment.",
-    img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
-    rating: 4.7,
-  },
-  {
-    id: 9,
-    title: "Spa Wellness",
-    desc: "Relaxing spa treatments, yoga sessions, wellness therapies, and peaceful healing retreats. Designed to refresh mind, body, and soul with professional care and calm natural surroundings for complete relaxation.",
-    img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
-    rating: 4.8,
-  },
-  {
-    id: 10,
-    title: "Business Suite",
-    desc: "Premium corporate stays with meeting rooms, high-speed WiFi, luxury interiors, and business facilities. Perfect for professionals who need comfort, productivity, and modern amenities during business trips.",
-    img: "https://imgs.search.brave.com/eYVrhAo4uqkiqi1ACUtYeb0qfsf34yp3Z9IawtpCYeQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI2/MTU5NDk1MS9lcy9m/b3RvL2J1c2luZXNz/d29tYW4tdXNpbmct/c21hcnRwaG9uZS1h/bmQtbGFwdG9wLWlu/LXN1aXRlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1QN09O/ZXdsNXB6cVVOZHNU/M0ZXRkRVNUFKSEw0/a25SUGh2SWZqdEN5/YkQ4PQ",
-    rating: 4.4,
-  },
-  {
-    id: 11,
-    title: "Family Holiday",
-    desc: "Perfect family vacation stays with entertainment zones, swimming pools, kids activities, and comfortable rooms. Designed for families to enjoy fun, relaxation, and quality time together in luxury environment.",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-    rating: 4.6,
-  },
-  {
-    id: 12,
-    title: "Luxury Cruise",
-    desc: "Ocean cruise experience with fine dining, entertainment shows, luxury cabins, and sea views. Enjoy a floating luxury hotel experience with world-class hospitality and unforgettable ocean journey.",
-    img: "https://imgs.search.brave.com/qQXLVRFXVC5H4ct9VMr3ULGqkMcOX9F3JabKPvF-Y3Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2l4c3RhcmNydWlz/ZXMuY28udWsvc3Rv/cmFnZS9tZWRpYS8x/OTE0NTgxL2NvbnZl/cnNpb25zLzIwMjVf/bHV4dXJ5X2NydWlz/ZXMtdGh1bWItdGh1/bWIuanBn",
-    rating: 4.9,
-  },
-  {
-    id: 13,
-    title: "Forest Retreat",
-    desc: "Stay inside deep forests surrounded by wildlife, nature trails, wooden cottages, and peaceful environment. Perfect for nature lovers seeking calm, adventure, and natural beauty experience.",
-    img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
-    rating: 4.5,
-  },
-  {
-    id: 14,
-    title: "Winter Special",
-    desc: "Snow-covered luxury stays with warm cottages, mountain views, cozy interiors, and winter activities. Enjoy magical snowfall experience with comfort, warmth, and scenic beauty all around.",
-    img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5",
-    rating: 4.7,
-  },
-  {
-    id: 15,
-    title: "Heritage Stay",
-    desc: "Historical royal hotels with cultural architecture, traditional hospitality, luxury rooms, and heritage experience. Step into history while enjoying modern comfort and royal treatment.",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    rating: 4.8,
-  },
-  {
-    id: 16,
-    title: "Private Villa",
-    desc: "Luxury private villas with pools, gardens, premium interiors, and exclusive services. Perfect for privacy, luxury living, and peaceful vacations with family or friends.",
-    img: "https://images.unsplash.com/photo-1501183638710-841dd1904471",
-    rating: 4.9,
-  },
-  {
-    id: 17,
-    title: "Adventure Trip",
-    desc: "Thrilling adventure packages including trekking, rafting, camping, and outdoor sports. Designed for adventure lovers who want excitement and unforgettable experiences.",
-    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    rating: 4.6,
-  },
-  {
-    id: 18,
-    title: "Weekend Deal",
-    desc: "Short luxury weekend stays for quick relaxation, comfort, and refreshing getaway. Perfect for stress-free breaks with premium services and peaceful environment.",
-    img: "https://images.unsplash.com/photo-1468071174046-657d9d351a40",
-    rating: 4.4,
-  },
-  {
-    id: 19,
-    title: "Resort Special",
-    desc: "5-star premium resort stays with pools, dining, spa services, and luxury amenities. Enjoy complete relaxation and high-class hospitality experience.",
-    img: "https://imgs.search.brave.com/_1bPFnCgWIncHJoXzxUJByLkBPrtvfVreJTdtCjTKvI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGhyaWxsb3Bo/aWxpYS5jb20vZmls/ZXN0b3JlLzRvZnZy/MmJtbGk1djVlNDhz/NXljMjVraHdiMTVf/d2lsZGVybmVzdGhp/bGx0b3ByZXNvcnQt/MjAyMzAzMTgtMDAw/Mi5qcGc_dz0zMDUm/aD0yMzAmZHBy",
-    rating: 4.7,
-  },
-  {
-    id: 20,
-    title: "Elite Package",
-    desc: "Ultra luxury premium experience with VIP services, personalized hospitality, private spaces, and top-class comfort. Designed for elite travelers seeking perfection.",
-    img: "https://imgs.search.brave.com/eM224FAM9mUc6lZuNMQ-vfRP0ffTmn516f-_dzz1D94/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9wcm90/ZWN0aW9uYXV0b2Rl/dGFpbGluZy5jb20v/bWVkaWEvRWxpdGUt/cGFja2FnZS5qcGc",
-    rating: 5.0,
-  },
-  {
-  id: 20,
-  title: "Royal Elite Experience",
-  desc: "Step into an unmatched world of ultra-luxury living featuring royal suites, private butler service, personalized gourmet dining, and exclusive VIP privileges. This experience is crafted for high-end travelers who demand privacy, elegance, and perfection in every moment of their stay with world-class hospitality.",
-  img: "https://imgs.search.brave.com/y_IoSSbA3o6rR-SrTSZovTQnvj34Cbp12HjDwilgVoI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2l4c3RhdGlj/LmNvbS9tZWRpYS9l/MjI5YzBfNjk5MDU2/ODg1OTBiNDg2OGEy/NDI4OGRhNDNjYWQy/YTJ-bXYyLmpwZy92/MS9jcm9wL3hfNjAw/LHlfMCx3XzI0MDAs/aF8yNDAwL2ZpbGwv/d18zNDMsaF8zNDMs/YWxfYyxxXzgwLHVz/bV8wLjY2XzEuMDBf/MC4wMSxlbmNfYXZp/ZixxdWFsaXR5X2F1/dG8vSkZNXzM5NjAl/MjAoMSkuanBn",
-  rating: 5.0,
-}
 ];
 
 const Offers = () => {
-  const [selectedOffer, setSelectedOffer] = useState(null);
+  const [selectedOffer, setSelectedOffer] =
+    useState(null);
 
   return (
     <section className="offers">
 
-      <h2>🔥 Latest Luxury Offers</h2>
+      {/* TOP BANNER */}
+
+      <div className="top-banner">
+
+        <div className="banner-card">
+
+          <FaCrown className="banner-icon" />
+
+          <div>
+            <h3>Royal Premium Collection</h3>
+
+            <p>
+              Exclusive luxury experiences
+              crafted for elite travelers.
+            </p>
+          </div>
+
+        </div>
+
+        <div className="banner-card">
+
+          <FaGem className="banner-icon" />
+
+          <div>
+            <h3>Luxury Destinations</h3>
+
+            <p>
+              Handpicked resorts with
+              world-class hospitality.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* HEADING */}
+
+      <div className="heading-box">
+
+        <h2>✨ Royal Luxury Offers</h2>
+
+        <p>
+          Explore premium royal stays,
+          luxury resorts and unforgettable experiences.
+        </p>
+
+      </div>
+
+      {/* CARDS */}
 
       <div className="offer-container">
 
         {offersData.map((item) => (
+
           <div
             className="offer-card"
             key={item.id}
-            onClick={() => setSelectedOffer(item)}
           >
 
+            {/* IMAGE */}
+
             <div className="img-box">
-              <img src={item.img} alt={item.title} />
+
+              <img
+                src={item.img}
+                alt={item.title}
+              />
+
+              <div className="overlay">
+
+                <span className="price-tag">
+                  {item.price}
+                </span>
+
+                <span className="offer-tag">
+
+                  <FaFire />
+
+                  {item.tag}
+
+                </span>
+
+              </div>
+
+              <div className="heart-icon">
+
+                <FaHeart />
+
+              </div>
+
             </div>
 
+            {/* CONTENT */}
+
             <div className="offer-content">
-              <h3>{item.title}</h3>
-              <p>{item.desc.slice(0, 70)}...</p>
+
+              <div className="top-row">
+
+                <h3>{item.title}</h3>
+
+                <span className="rating-box">
+
+                  <FaStar />
+
+                  {item.rating}
+
+                </span>
+
+              </div>
+
+              <div className="location">
+
+                <FaMapMarkerAlt />
+
+                {item.location}
+
+              </div>
+
+              <p>
+                {item.shortDesc}
+              </p>
+
+              {/* EXTRA INFO */}
+
+              <div className="extra-info">
+
+                <div>
+                  ⭐ Premium Stay
+                </div>
+
+                <div>
+                  🏨 Luxury Rooms
+                </div>
+
+                <div>
+                  🍽 Fine Dining
+                </div>
+
+              </div>
+
+              <button
+                className="explore-btn"
+                onClick={() =>
+                  setSelectedOffer(item)
+                }
+              >
+                Explore More
+              </button>
+
             </div>
 
           </div>
+
         ))}
 
       </div>
 
-      {/* MODAL */}
-      {selectedOffer && (
-        <div className="modal-overlay">
+      {/* SERVICES */}
 
-          <div className="modal-box">
+      <div className="services-section">
+
+        <div className="service-box">
+
+          <FaSpa className="service-icon" />
+
+          <h3>Luxury Wellness</h3>
+
+          <p>
+            Premium spa therapies and relaxing experiences.
+          </p>
+
+        </div>
+
+        <div className="service-box">
+
+          <FaCocktail className="service-icon" />
+
+          <h3>Premium Dining</h3>
+
+          <p>
+            Experience luxury restaurants and gourmet meals.
+          </p>
+
+        </div>
+
+        <div className="service-box">
+
+          <FaSwimmingPool className="service-icon" />
+
+          <h3>Infinity Pools</h3>
+
+          <p>
+            Relax inside beautiful infinity pools.
+          </p>
+
+        </div>
+
+      </div>
+
+      {/* SMALL MODAL */}
+
+      {selectedOffer && (
+
+        <div
+          className="modal-overlay"
+          onClick={() =>
+            setSelectedOffer(null)
+          }
+        >
+
+          <div
+            className="small-modal"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+
+            {/* CLOSE */}
 
             <button
               className="close-btn"
-              onClick={() => setSelectedOffer(null)}
+              onClick={() =>
+                setSelectedOffer(null)
+              }
             >
               <FaTimes />
             </button>
 
-            <img src={selectedOffer.img} alt="" />
+            {/* IMAGE */}
 
-            <h2>{selectedOffer.title}</h2>
+            <img
+              src={selectedOffer.img}
+              alt={selectedOffer.title}
+              className="small-modal-img"
+            />
 
-            <div className="rating">
-              {"⭐".repeat(Math.floor(selectedOffer.rating))} {selectedOffer.rating}/5
+            {/* CONTENT */}
+
+            <div className="small-modal-content">
+
+              <div className="modal-title-row">
+
+                <h2>
+                  {selectedOffer.title}
+                </h2>
+
+                <div className="modal-rating">
+                  ⭐ {selectedOffer.rating}
+                </div>
+
+              </div>
+
+              <p className="modal-location">
+
+                <FaMapMarkerAlt />
+
+                {selectedOffer.location}
+
+              </p>
+
+              {/* INFO */}
+
+              <div className="mini-info">
+
+                <div>
+                  <FaClock />
+                  {selectedOffer.duration}
+                </div>
+
+                <div>
+                  <FaUsers />
+                  {selectedOffer.guests}
+                </div>
+
+                <div>
+                  <FaBed />
+                  {selectedOffer.room}
+                </div>
+
+              </div>
+
+              {/* FEATURES */}
+
+              <div className="features">
+
+                <div>
+                  <FaWifi />
+                  Wifi
+                </div>
+
+                <div>
+                  <FaSwimmingPool />
+                  Pool
+                </div>
+
+                <div>
+                  <FaSpa />
+                  Spa
+                </div>
+
+                <div>
+                  <FaCocktail />
+                  Bar
+                </div>
+
+              </div>
+
+              {/* DESC */}
+
+              <p className="modal-desc">
+                {selectedOffer.fullDesc}
+              </p>
+
+              {/* PRICE */}
+
+              <div className="bottom-row">
+
+                <h3>
+                  {selectedOffer.price}
+                </h3>
+
+                <button className="book-btn">
+                  Book Now
+                </button>
+
+              </div>
+
             </div>
-
-            <p>{selectedOffer.desc}</p>
 
           </div>
 
         </div>
+
       )}
 
+      {/* CSS */}
+
       <style>{`
-        .offers {
-          padding: 80px 50px;
-          background: #f5f5f5;
-          text-align: center;
+
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family:sans-serif;
         }
 
-        .offers h2 {
-          font-size: 42px;
-          margin-bottom: 40px;
-          font-weight: 900;
+        body{
+          background:#120b1f;
         }
 
-        .offer-container {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 25px;
+        .offers{
+          width:100%;
+          min-height:100vh;
+          background:
+          linear-gradient(
+          135deg,
+          #120b1f,
+          #1d1033,
+          #2a1245,
+          #14071f
+          );
+          padding:80px 6%;
+          color:#fff;
         }
 
-        .offer-card {
-          background: #fff;
-          border-radius: 18px;
-          overflow: hidden;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-          cursor: pointer;
+        .top-banner{
+          display:grid;
+          grid-template-columns:
+          repeat(auto-fit,minmax(280px,1fr));
+          gap:25px;
+          margin-bottom:50px;
         }
 
-        .offer-card:hover {
-          transform: translateY(-8px);
+        .banner-card{
+          background:
+          rgba(255,255,255,0.08);
+          padding:25px;
+          border-radius:22px;
+          display:flex;
+          align-items:center;
+          gap:20px;
+          border:1px solid
+          rgba(255,255,255,0.1);
         }
 
-        .img-box {
-          height: 260px;
+        .banner-icon{
+          font-size:45px;
+          color:gold;
         }
 
-        .img-box img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        .heading-box{
+          text-align:center;
+          margin-bottom:60px;
         }
 
-        .offer-content {
-          padding: 18px;
+        .heading-box h2{
+          font-size:52px;
+          margin-bottom:15px;
+          background:
+          linear-gradient(
+          to right,
+          gold,
+          #fff
+          );
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
         }
 
-        .offer-content p {
-          font-size: 14px;
-          color: #666;
+        .heading-box p{
+          max-width:700px;
+          margin:auto;
+          color:#ddd;
+          line-height:1.8;
         }
 
-        .modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0,0,0,0.7);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 999;
+        .offer-container{
+          display:grid;
+          grid-template-columns:
+          repeat(auto-fit,minmax(320px,1fr));
+          gap:30px;
         }
 
-        .modal-box {
-          background: #fff;
-          width: 90%;
-          max-width: 520px;
-          border-radius: 15px;
-          padding: 20px;
-          text-align: center;
+        .offer-card{
+          background:
+          rgba(255,255,255,0.06);
+          border-radius:24px;
+          overflow:hidden;
+          transition:0.4s;
+          border:1px solid
+          rgba(255,255,255,0.1);
         }
 
-        .modal-box img {
-          width: 100%;
-          height: 260px;
-          object-fit: cover;
-          border-radius: 10px;
+        .offer-card:hover{
+          transform:translateY(-10px);
         }
 
-        .rating {
-          color: #f5a623;
-          margin: 10px 0;
-          font-weight: bold;
+        .img-box{
+          height:250px;
+          position:relative;
+          overflow:hidden;
         }
 
-        .close-btn {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          background: red;
-          color: #fff;
-          border: none;
-          border-radius: 50%;
-          padding: 8px;
-          cursor: pointer;
+        .img-box img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          transition:0.5s;
         }
+
+        .offer-card:hover img{
+          transform:scale(1.08);
+        }
+
+        .overlay{
+          position:absolute;
+          inset:0;
+          display:flex;
+          justify-content:space-between;
+          align-items:flex-start;
+          padding:20px;
+          background:
+          linear-gradient(
+          to top,
+          rgba(0,0,0,0.7),
+          transparent
+          );
+        }
+
+        .price-tag,
+        .offer-tag{
+          padding:10px 16px;
+          border-radius:30px;
+          font-size:13px;
+          font-weight:700;
+        }
+
+        .price-tag{
+          background:gold;
+          color:#000;
+        }
+
+        .offer-tag{
+          background:#ff4d6d;
+          display:flex;
+          align-items:center;
+          gap:6px;
+        }
+
+        .heart-icon{
+          position:absolute;
+          bottom:18px;
+          right:18px;
+          width:42px;
+          height:42px;
+          border-radius:50%;
+          background:
+          rgba(255,255,255,0.12);
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          color:#ff4d6d;
+        }
+
+        .offer-content{
+          padding:22px;
+        }
+
+        .top-row{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          margin-bottom:12px;
+        }
+
+        .top-row h3{
+          font-size:24px;
+        }
+
+        .rating-box{
+          background:#2f2148;
+          padding:8px 12px;
+          border-radius:30px;
+          display:flex;
+          align-items:center;
+          gap:6px;
+          color:gold;
+        }
+
+        .location{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          margin-bottom:15px;
+          color:#d0c5e6;
+        }
+
+        .offer-content p{
+          color:#ddd;
+          line-height:1.7;
+          margin-bottom:20px;
+        }
+
+        .extra-info{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          margin-bottom:22px;
+        }
+
+        .extra-info div{
+          background:
+          rgba(255,255,255,0.08);
+          padding:8px 14px;
+          border-radius:30px;
+          font-size:13px;
+        }
+
+        .explore-btn{
+          width:100%;
+          padding:14px;
+          border:none;
+          border-radius:14px;
+          background:
+          linear-gradient(
+          to right,
+          gold,
+          #ffdd55
+          );
+          color:#000;
+          font-weight:800;
+          cursor:pointer;
+          transition:0.4s;
+        }
+
+        .explore-btn:hover{
+          transform:scale(1.03);
+        }
+
+        /* SERVICES */
+
+        .services-section{
+          display:grid;
+          grid-template-columns:
+          repeat(auto-fit,minmax(250px,1fr));
+          gap:25px;
+          margin-top:70px;
+        }
+
+        .service-box{
+          background:
+          rgba(255,255,255,0.06);
+          padding:30px;
+          border-radius:24px;
+          text-align:center;
+          border:1px solid
+          rgba(255,255,255,0.08);
+        }
+
+        .service-icon{
+          font-size:42px;
+          color:gold;
+          margin-bottom:18px;
+        }
+
+        /* SMALL MODAL */
+
+        .modal-overlay{
+          position:fixed;
+          inset:0;
+          background:rgba(0,0,0,0.75);
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          padding:20px;
+          z-index:999;
+          backdrop-filter:blur(8px);
+        }
+
+        .small-modal{
+          width:100%;
+          max-width:500px;
+          background:
+          linear-gradient(
+          135deg,
+          #1a0f2c,
+          #261540
+          );
+          border-radius:24px;
+          overflow:hidden;
+          position:relative;
+          animation:popup 0.4s ease;
+          border:1px solid
+          rgba(255,255,255,0.1);
+          box-shadow:
+          0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        @keyframes popup{
+          from{
+            transform:scale(0.7);
+            opacity:0;
+          }
+          to{
+            transform:scale(1);
+            opacity:1;
+          }
+        }
+
+        .close-btn{
+          position:absolute;
+          top:14px;
+          right:14px;
+          width:38px;
+          height:38px;
+          border:none;
+          border-radius:50%;
+          background:#ff3d3d;
+          color:#fff;
+          cursor:pointer;
+          z-index:10;
+        }
+
+        .small-modal-img{
+          width:100%;
+          height:220px;
+          object-fit:cover;
+        }
+
+        .small-modal-content{
+          padding:22px;
+        }
+
+        .modal-title-row{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          gap:10px;
+          margin-bottom:10px;
+        }
+
+        .modal-title-row h2{
+          font-size:28px;
+        }
+
+        .modal-rating{
+          background:gold;
+          color:#000;
+          padding:8px 14px;
+          border-radius:30px;
+          font-weight:700;
+          font-size:14px;
+        }
+
+        .modal-location{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          color:#ddd;
+          margin-bottom:18px;
+        }
+
+        .mini-info{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          margin-bottom:18px;
+        }
+
+        .mini-info div{
+          background:
+          rgba(255,255,255,0.08);
+          padding:10px 14px;
+          border-radius:30px;
+          display:flex;
+          align-items:center;
+          gap:8px;
+          font-size:13px;
+        }
+
+        .features{
+          display:grid;
+          grid-template-columns:
+          repeat(2,1fr);
+          gap:12px;
+          margin-bottom:20px;
+        }
+
+        .features div{
+          background:
+          rgba(255,255,255,0.08);
+          padding:12px;
+          border-radius:14px;
+          display:flex;
+          align-items:center;
+          gap:8px;
+        }
+
+        .modal-desc{
+          color:#ddd;
+          line-height:1.8;
+          font-size:14px;
+          margin-bottom:22px;
+        }
+
+        .bottom-row{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          gap:20px;
+        }
+
+        .bottom-row h3{
+          color:gold;
+          font-size:28px;
+        }
+
+        .book-btn{
+          padding:12px 24px;
+          border:none;
+          border-radius:14px;
+          background:
+          linear-gradient(
+          to right,
+          gold,
+          #ffe066
+          );
+          color:#000;
+          font-weight:800;
+          cursor:pointer;
+        }
+
+        @media(max-width:768px){
+
+          .heading-box h2{
+            font-size:38px;
+          }
+
+          .small-modal{
+            max-width:95%;
+          }
+
+          .modal-title-row{
+            flex-direction:column;
+            align-items:flex-start;
+          }
+
+          .features{
+            grid-template-columns:1fr;
+          }
+
+          .bottom-row{
+            flex-direction:column;
+            align-items:flex-start;
+          }
+
+        }
+
       `}</style>
 
     </section>
