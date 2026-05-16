@@ -368,7 +368,7 @@ const roomCategories = [
   {
     name: "Family Normal Room",
     image:
-      "https://images.unsplash.com/photo-1501117716987-c8e1ecb2102d?auto=format&fit=crop&w=1200&q=80",
+      "https://imgs.search.brave.com/da88Hyo4XkAcKb0i7egVRm4vwpN4VLGN4wUZanKKwBo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aGVt/YW5vcmhvdXNlaG9t/ZXN0YXlzLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyNS8w/OC9UU0EwMzc5Ni1I/RFItMi1zY2FsZWQt/MS5qcGc",
     price: "₹3,800",
     rating: "⭐ 4.6",
     desc: "Spacious room suitable for small family stay.",
@@ -398,7 +398,7 @@ const roomCategories = [
   {
     name: "Comfort Twin Room",
     image:
-      "https://images.unsplash.com/photo-1505692794403-34c8b4e6a1d1?auto=format&fit=crop&w=1200&q=80",
+      "https://imgs.search.brave.com/nK8bFmcMcm5B7EAe2Lz2LAO26Js-CXkIXpNohRDSpIQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9tb2Rl/cm4taG90ZWwtcm9v/bS0yNzU0NDgyMC5q/cGc",
     price: "₹3,700",
     rating: "⭐ 4.5",
     desc: "Two-bed room ideal for friends or colleagues.",
@@ -418,7 +418,7 @@ const roomCategories = [
   {
     name: "Simple Comfort Room",
     image:
-      "https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?auto=format&fit=crop&w=1200&q=80",
+      "https://imgs.search.brave.com/E4S_5b37H4tLR_NRivWWFgDb9FGrG8s0tsA7NIQY2v0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9zaW1w/bGUtaG90ZWwtcm9v/bS1pbnRlcmlvci1z/aW1wbGUtaG90ZWwt/cm9vbS1pbnRlcmlv/ci1qYWthcnRhLWlu/ZG9uZXNpYS1hcHJp/bC0zMjc0NzIxNDMu/anBn",
     price: "₹3,050",
     rating: "⭐ 4.3",
     desc: "Clean and simple room for short stay.",
@@ -448,7 +448,7 @@ const roomCategories = [
   {
     name: "Standard Relax Room",
     image:
-      "https://images.unsplash.com/photo-1501117716987-c8e1ecb2102d?auto=format&fit=crop&w=1200&q=80",
+      "https://imgs.search.brave.com/fRLPLD7IKjXIzl4G3CqkuaZRCbtzOnox1cC8npui8iM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudHJ2bC1tZWRp/YS5jb20vbG9kZ2lu/Zy8xMjYwMDAwMDAv/MTI1MzIwMDAwLzEy/NTMxODUwMC8xMjUz/MTg0MTAvY2RkZjRj/YWMuanBnP2ltcG9s/aWN5PXJlc2l6ZWNy/b3Amcnc9NTk4JnJh/PWZpdA",
     price: "₹3,600",
     rating: "⭐ 4.5",
     desc: "Balanced comfort room with all essential facilities.",
